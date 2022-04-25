@@ -1,0 +1,64 @@
+import java.util.Scanner;
+public class ExAula {
+    public static void main(String[] args) {
+
+        Scanner leitor = new Scanner(System.in);
+
+        System.out.println("Informe o tamanho da matriz quadrada:");
+        int tamanhoMatriz = leitor.nextInt();
+
+        System.out.println("Quantos graus?");
+        System.out.println("1 - 0 graus \n2 - 90 graus \n3 - 180 graus \n4 - 270 graus \n5 - 360 graus");
+        int grausGirar = leitor.nextInt();
+
+        int matriz[][] = new int[tamanhoMatriz][tamanhoMatriz];
+        criarMatriz(matriz, tamanhoMatriz);
+
+        System.out.println("------ Matriz original ------");
+        printMatriz(matriz);
+
+        while(grausGirar > 1){
+            girarMatriz(matriz, tamanhoMatriz);
+            grausGirar = grausGirar - 1;
+        }
+
+        System.out.println("-------- Matriz nova --------");
+        printMatriz(matriz);
+
+        leitor.close();
+}
+
+    public static void girarMatriz(int[][] matriz, int n){
+        for (int camada = 0; camada < n / 2; ++camada) {
+            int primeiro = camada;
+            int ultimo = n - 1 - camada;
+            for(int i = primeiro; i < ultimo; ++i) {
+                int mudar = i - primeiro;
+                int top = matriz[primeiro][i]; 
+    
+                matriz[primeiro][i] = matriz[ultimo-mudar][primeiro];         
+                matriz[ultimo-mudar][primeiro] = matriz[ultimo][ultimo - mudar]; 
+                matriz[ultimo][ultimo - mudar] = matriz[i][ultimo]; 
+                matriz[i][ultimo] = top; 
+            }
+        }
+    }
+
+    public static void printMatriz(int[][] matriz){
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j<matriz[i].length; j++){
+                System.out.print(" {" + matriz[i][j] + "} ");
+            }
+            System.out.println();    
+        }
+        System.out.println();
+    }
+
+    public static void criarMatriz(int[][] matriz,int n){
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                matriz[i][j]=(int) (Math.random() * 100);
+            }
+        }
+    }
+}
