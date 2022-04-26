@@ -1,10 +1,10 @@
 import java.util.Scanner;
-public class ExAula {
+public class RotateMatriz {
     public static void main(String[] args) {
 
         Scanner leitor = new Scanner(System.in);
 
-        System.out.println("Informe o tamanho da matriz quadrada:");
+        System.out.println("Informe o tamanho da matriz NxN:");
         int tamanhoMatriz = leitor.nextInt();
 
         System.out.println("Quantos graus?");
@@ -14,7 +14,7 @@ public class ExAula {
         int matriz[][] = new int[tamanhoMatriz][tamanhoMatriz];
         criarMatriz(matriz, tamanhoMatriz);
 
-        System.out.println("------ Matriz original ------");
+        System.out.println("-------- Matriz nova --------");
         printMatriz(matriz);
 
         while(grausGirar > 1){
@@ -22,24 +22,24 @@ public class ExAula {
             grausGirar = grausGirar - 1;
         }
 
-        System.out.println("-------- Matriz nova --------");
+        System.out.println("------ Matriz original ------");
         printMatriz(matriz);
 
         leitor.close();
 }
 
     public static void girarMatriz(int[][] matriz, int n){
-        for (int camada = 0; camada < n / 2; ++camada) {
-            int primeiro = camada;
-            int ultimo = n - 1 - camada;
-            for(int i = primeiro; i < ultimo; ++i) {
-                int mudar = i - primeiro;
-                int top = matriz[primeiro][i]; 
-    
-                matriz[primeiro][i] = matriz[ultimo-mudar][primeiro];         
-                matriz[ultimo-mudar][primeiro] = matriz[ultimo][ultimo - mudar]; 
-                matriz[ultimo][ultimo - mudar] = matriz[i][ultimo]; 
-                matriz[i][ultimo] = top; 
+        int matriz2[][] = new int[n][n];
+
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j < matriz[i].length; j++){
+                matriz2[i][j] = matriz[j][matriz.length - 1 - i];
+            }
+        }
+
+        for(int i = 0; i < matriz.length; i++){
+            for(int j = 0; j<matriz[i].length; j++){
+                matriz[i][j] = matriz2[i][j];
             }
         }
     }
