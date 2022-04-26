@@ -7,22 +7,22 @@ public class rotateMatriz {
         System.out.println("Informe o tamanho da matriz NxN:");
         int tamanhoMatriz = leitor.nextInt();
 
-        System.out.println("Quantos graus?");
-        System.out.println("1 - 0 graus \n2 - 90 graus \n3 - 180 graus \n4 - 270 graus \n5 - 360 graus");
-        int grausGirar = leitor.nextInt();
-
         int matriz[][] = new int[tamanhoMatriz][tamanhoMatriz];
         criarMatriz(matriz, tamanhoMatriz);
 
-        System.out.println("-------- Matriz nova --------");
+        System.out.println("------ Matriz original ------");
         printMatriz(matriz);
+
+        System.out.println("Quantos graus anti-horário?");
+        System.out.println("1 - 0 graus \n2 - 90 graus \n3 - 180 graus \n4 - 270 graus \n5 - 360 graus");
+        int grausGirar = leitor.nextInt();
 
         while(grausGirar > 1){
             girarMatriz(matriz, tamanhoMatriz);
             grausGirar = grausGirar - 1;
         }
 
-        System.out.println("------ Matriz original ------");
+        System.out.println("------ Matriz nova ------");
         printMatriz(matriz);
 
         leitor.close();
