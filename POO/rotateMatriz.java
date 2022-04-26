@@ -13,7 +13,7 @@ public class rotateMatriz {
         System.out.println("------ Matriz original ------");
         printMatriz(matriz);
 
-        System.out.println("Quantos graus anti-horário?");
+        System.out.println("Quantos graus?");
         System.out.println("1 - 0 graus \n2 - 90 graus \n3 - 180 graus \n4 - 270 graus \n5 - 360 graus");
         int grausGirar = leitor.nextInt();
 
@@ -33,7 +33,7 @@ public class rotateMatriz {
 
         for(int i = 0; i < matriz.length; i++){
             for(int j = 0; j < matriz[i].length; j++){
-                matriz2[i][j] = matriz[j][matriz.length - 1 - i];
+                matriz2[j][matriz2[j].length - 1 - i] = matriz[i][j];
             }
         }
 
