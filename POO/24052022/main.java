@@ -15,14 +15,6 @@ public class main {
         
         System.out.println(robo);
         
-        System.out.println("Carregando = " + robo.isCarregando());
-
-        try {
-            robo.carregarBateria();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        
     }
 
 }
