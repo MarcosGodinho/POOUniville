@@ -1,5 +1,5 @@
 public class RoboLunar {
-    public int bateria = 100;
+    public int bateria = 30;
     private String msg = "Carregando, nao é possível executar mais açoes";
 
     public String virarRobo(double graus) {
@@ -43,17 +43,10 @@ public class RoboLunar {
         return this.bateria <= 10;
     }
 
-    public void carregarBateria() throws InterruptedException {
-            System.out.println("Carregando...");
-            Thread.sleep(5000);
-            this.bateria = 100;
-            System.out.println("Bateria em 100% novamente!!");
-    }
-
     @Override
     public String toString() {
         return  "Bateria = " + bateria +
-                ", Carregando? = " + isCarregando() ;
+                "% , Carregando? = " + isCarregando() ;
 
     }
 }
