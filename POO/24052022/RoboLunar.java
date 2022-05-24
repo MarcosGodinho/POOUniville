@@ -1,5 +1,5 @@
 public class RoboLunar {
-    public int bateria = 30;
+    private int bateria = 30;
     private String msg = "Carregando, nao é possível executar mais açoes";
 
     public String virarRobo(double graus) {
