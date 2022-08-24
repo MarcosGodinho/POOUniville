@@ -27,7 +27,8 @@ GOTO END
 
 :help
 echo.
-echo You go to the door.
+echo --help	Mostra os comandos
+echo --version	Mostra a versão do DoS
 echo.
 pause
 GOTO END
